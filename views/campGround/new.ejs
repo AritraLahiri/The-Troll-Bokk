@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<h1 class="my-5 text-center">Add More Camps Here </h1>
+<form action="/campgrounds" method="post">
+    <div style="width:380px;margin:42px auto;">
+        <div class="form-group ">
+            <input type="text" name="name" placeholder="Camp Name" class="form-control form-control-lg my-4"
+                autocomplete="off">
+            <input type="number" name="price" placeholder="Camp Price" class="form-control form-control-lg my-4"
+                min="100" step="1" required>
+            <input type="text" name="image" placeholder="Image URL" class="form-control form-control-lg my-4"
+                autocomplete="off">
+            <input type="text" name="descp" placeholder="Desc" class="form-control form-control-lg my-4"
+                autocomplete="off">
+            <button type="submit" class="btn btn-primary btn-block mb-2">Add Camp</button>
+            <a href="/campgrounds" class="text-capitalize">go back</a>
+        </div>
+    </div>
+</form>
+<%- include("../partials/footer") %>

@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+<form action="/login" method="POST"> 
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Login Fast !</h1>
+        <hr class="my-4">
+
+        <div style="width:380px;margin:42px auto;">
+            <div class="form-group ">
+                <input type="text" name="username" class="form-control form-control-lg my-4" placeholder="Name">
+                <input type="password" name="password" class="form-control form-control-lg my-4" placeholder="Password">
+                <button type="submit" class="btn btn-outline-success btn-block mb-2">Login</button>
+                <a href="/campgrounds" class="text-capitalize">go back</a>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include("partials/footer") %>
