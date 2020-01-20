@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 // SCHEMA
 const campSchema = new mongoose.Schema({
 	name: String,
-	price: String,
 	image: String,
 	desc: String,
 	author: {

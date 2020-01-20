@@ -22,7 +22,6 @@ router.get('/campgrounds', (req, res) => {
 // ADDS MORE CAMPS
 router.post('/campgrounds',middleware.isLoggedIn, (req, res) => {
 	const name = req.body.name;
-	const price = req.body.price;
 	const image 	= req.body.image;
 	const desc 		= req.body.descp;
 	const author 	= {

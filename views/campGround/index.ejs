@@ -16,19 +16,19 @@
         <div class="col-lg-12 ">
             <div class="my-5">
                 <div class="float-left ml-3">
-                    <img src="<%=ele.author.image%>"class="avatar">
+                    <img src="<%=ele.author.image%>" class="avatar">
                     <span class="ml-2"><%= ele.author.username %></span>
                 </div>
 
                 <img src="<%= ele.image%>" class="img-fluid" id="img-index">
                 <p class="lead text-left pl-3"><%= ele.desc%></p>
                 <% if(currentUser && ele.author.id.equals(currentUser.id )) {%>
-                <a  href="/campgrounds/<%=ele._id%>/edit"><i class='fas fa-pen-fancy'> </i></a>
+                <a href="/campgrounds/<%=ele._id%>/edit"><i class='fas fa-pen-fancy'> </i></a>
                 <form action="/campgrounds/<%=ele._id%>?_method=DELETE" method="POST" class="delete-form">
-                    <a id="delete"><i class='fas fa-trash' style="color: red;"></i></a>
+                    <button class="btn " id="delete"><i class='fas fa-trash' style="color: red;"></i></button>
                 </form>
                 <% } %>
-               <a href="/campgrounds/<%= ele._id %>"> <i class='fas fa-comment'></i></a>
+                <a href="/campgrounds/<%= ele._id %>"> <i class='fas fa-comment'></i></a>
             </div>
         </div>
         <% })  %>

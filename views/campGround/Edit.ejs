@@ -3,10 +3,12 @@
 <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
     <div style="width:380px;margin:42px auto;">
         <div class="form-group ">
-            <input type="text" name="camp[name]" value="<%= campground.name%>" class="form-control form-control-lg my-4">
-            <input type="number" name="camp[price]" value="<%= campground.price%>" class="form-control form-control-lg my-4">
-            <input type="text" name="camp[image]" value="<%= campground.image%>" class="form-control form-control-lg my-4">
-            <input type="text" name="camp[desc]" value="<%= campground.desc%>" class="form-control form-control-lg my-4">
+            <input type="text" name="camp[name]" value="<%= campground.name%>"
+                class="form-control form-control-lg my-4">
+            <input type="file" name="camp[image]" value="<%= campground.image%>"
+                class="form-control form-control-lg my-4" accept="image/*">
+            <textarea name="camp[desc]" value="<%= campground.desc%>"
+                class="form-control form-control-lg my-4"><%=campground.desc %></textarea>
             <button type="submit" class="btn btn-primary btn-block mb-2">Save</button>
             <a href="/campgrounds" class="text-capitalize">go back</a>
         </div>
