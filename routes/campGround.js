@@ -28,7 +28,7 @@ router.post('/campgrounds',middleware.isLoggedIn, (req, res) => {
 			id:req.user._id,
 			username:req.user.username
 	}
-	const newCamp 	= { name: name,price:price, image: image, desc: desc,author:author};
+	const newCamp 	= { name: name,image: image, desc: desc,author:author};
 
 	campGround.create(newCamp, (err) => {
 		if (err) {
