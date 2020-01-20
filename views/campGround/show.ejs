@@ -1,7 +1,6 @@
 <%- include("../partials/header")  %>
 <div class="container-fluid">
-    <a href="/campgrounds">Back</a>
-
+    <a href="/campgrounds"><i class='fas fa-arrow-left' id="back"></i></a>
 </div>
 <div class="container">
     <div class="row mt-3">
@@ -20,28 +19,31 @@
                 <p><%= campGround.desc %></p>
                 <p><em>Created By -<%= campGround.author.username%></em></p>
                 <% if(currentUser && campGround.author.id.equals(currentUser.id )) {%>
-                <a class="btn btn-warning  text-capitalize btn-sm" href="/campgrounds/<%=campGround._id%>/edit">edit</a>
+                <a class="btn  text-capitalize btn-sm" href="/campgrounds/<%=campGround._id%>/edit"><i
+                        class='fas fa-pen-fancy'> </i></a>
                 <form action="/campgrounds/<%=campGround._id%>?_method=DELETE" method="POST" class="delete-form">
-                    <button class="btn btn-danger btn-sm text-capitalize">delete</button>
+                    <button class="btn"><i class='fas fa-trash'></i></button>
                 </form>
                 <% } %>
                 <p class="pb-5"><a href="/campgrounds/<%=campGround._id%>/comment/new"
-                        class="btn btn-success float-right">Add a review</a></p>
+                        class="btn btn-success float-right">Comment</a></p>
                 <div class="row">
                     <%  campGround.comments.forEach(element => { %>
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-3">
                         <strong><%=element.author.username.toUpperCase() %></strong>
                         <span class="float-right"> 3 days ago</span>
                         <p><%= element.text%></p>
                         <% if(currentUser && element.author.id.equals(currentUser.id)){%>
-                        <a class="btn btn-sm btn-warning"
-                            href="/campgrounds/<%=campGround._id%>/comment/<%=element._id%>/edit">
-                            Edit
-                        </a>
                         <form action="/campgrounds/<%=campGround._id%>/comment/<%=element._id%>?_method=DELETE"
-                            method="POST" class="delete-form">
-                            <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            method="POST" class="delete-form float-right ml-2">
+                            <button class="btn btn-sm float-right"><i class='fas fa-trash'
+                                    style="color: red;font-size:1rem;"></i></button>
                         </form>
+                        <a class="btn btn-sm float-right"
+                            href="/campgrounds/<%=campGround._id%>/comment/<%=element._id%>/edit"><i
+                                class='fas fa-pen-fancy' style="font-size: 1rem;"> </i>
+
+                        </a>
                         <% } %>
                     </div>
                     <% });%>

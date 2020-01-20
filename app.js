@@ -7,7 +7,7 @@ mongoose 		 = 	require('mongoose'),
 passport 		 = 	require('passport'),
 User 			 = 	require('./models/Users/user'),
 LocalStrategy 	 = 	require('passport-local'),
-flash			 =   require('connect-flash'),
+flash			 =  require('connect-flash'),
 Comment 		 = 	require('./models/comments'),
 campGround 		 = 	require('./models/Camps'),
 seeds 			 = 	require('./seeds');
@@ -18,7 +18,8 @@ commentRoute	 = 	require('./routes/Comment'),
 authRoute		 = 	require('./routes/Auth');
 
 
-mongoose.connect('mongodb://localhost/yelp_camp', { useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false });
+// mongoose.connect('mongodb+srv://aritra:GSf6li1FuXTev75y@cluster0-3ts3r.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false });
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 // APP CONFIG
 app.set('view engine', '.ejs');

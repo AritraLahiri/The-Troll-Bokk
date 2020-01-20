@@ -2,25 +2,36 @@
 <div class="container">
     <header>
         <div class="jumbotron">
-            <h1 class="display-4 text-capitalize">welcome to yelpCamp !</h1>
-            <p class="lead text-capitalize">view our hand-picked camp grounds from all over the world.</p>
+            <h1 class="display-4 text-capitalize">welcome to Commenter!</h1>
+            <p class="lead text-capitalize">view post all over the world and feel free to share your comments</p>
             <hr class="my-4">
             <p class="lead">
                 <a class="btn btn-outline-danger btn-lg text-capitalize" href="/campgrounds/new" role="button">add
-                    camps</a>
+                    post</a>
             </p>
         </div>
     </header>
     <div class="row text-center">
-    <% camp.forEach(ele=>{ %>
-        <div class="col-lg-4 col-md-2 col-12">
+        <% camp.forEach(ele=>{ %>
+        <div class="col-lg-12 ">
             <div class="my-5">
-                <img src="<%= ele.image%>" class="img-fluid">
-                    <p class="lead "><%= ele.name%></p>
-                      <a href="/campgrounds/<%= ele._id %>" class="btn btn-outline-danger">More Info</a>
+                <div class="float-left ml-3">
+                    <img src="<%=ele.author.image%>"class="avatar">
+                    <span class="ml-2"><%= ele.author.username %></span>
+                </div>
+
+                <img src="<%= ele.image%>" class="img-fluid" id="img-index">
+                <p class="lead text-left pl-3"><%= ele.desc%></p>
+                <% if(currentUser && ele.author.id.equals(currentUser.id )) {%>
+                <a  href="/campgrounds/<%=ele._id%>/edit"><i class='fas fa-pen-fancy'> </i></a>
+                <form action="/campgrounds/<%=ele._id%>?_method=DELETE" method="POST" class="delete-form">
+                    <a id="delete"><i class='fas fa-trash' style="color: red;"></i></a>
+                </form>
+                <% } %>
+               <a href="/campgrounds/<%= ele._id %>"> <i class='fas fa-comment'></i></a>
             </div>
-    </div>
+        </div>
         <% })  %>
-    <div>
-</div>
-<%- include("../partials/footer")   %>
+        <div>
+        </div>
+        <%- include("../partials/footer")   %>
