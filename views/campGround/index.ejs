@@ -22,12 +22,6 @@
 
                 <img src="<%= ele.image%>" class="img-fluid" id="img-index">
                 <p class="lead text-left pl-3"><%= ele.desc%></p>
-                <% if(currentUser && ele.author.id.equals(currentUser.id )) {%>
-                <a href="/campgrounds/<%=ele._id%>/edit"><i class='fas fa-pen-fancy'> </i></a>
-                <form action="/campgrounds/<%=ele._id%>?_method=DELETE" method="POST" class="delete-form">
-                    <button class="btn " id="delete"><i class='fas fa-trash' style="color: red;"></i></button>
-                </form>
-                <% } %>
                 <a href="/campgrounds/<%= ele._id %>"> <i class='fas fa-comment'></i></a>
             </div>
         </div>

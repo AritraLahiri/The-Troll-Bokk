@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const campSchema = new mongoose.Schema({
 	name: String,
 	image: String,
+	image_id:String,
 	desc: String,
 	author: {
 		id:	{

@@ -1,13 +1,13 @@
 <%- include("../partials/header") %>
 <h1 class="my-5 text-center">Edit <%=campground.name%></h1>
-<form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
+<form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
     <div style="width:380px;margin:42px auto;">
         <div class="form-group ">
-            <input type="text" name="camp[name]" value="<%= campground.name%>"
+            <input type="text" name="name" value="<%= campground.name%>"
                 class="form-control form-control-lg my-4">
-            <input type="text" name="camp[image]" value="<%= campground.image%>"
-                class="form-control form-control-lg my-4" >
-            <textarea name="camp[desc]" value="<%= campground.desc%>"
+                <input type="file" name="image" placeholder="Image URL" class="form-control form-control-lg my-4"
+                autocomplete="off" accept="image/*">
+            <textarea name="desc" value="<%= campground.desc%>"
                 class="form-control form-control-lg my-4"><%=campground.desc %></textarea>
             <button type="submit" class="btn btn-primary btn-block mb-2">Save</button>
             <a href="/campgrounds" class="text-capitalize">go back</a>

@@ -3,13 +3,13 @@
 <form action="/campgrounds" method="post" enctype="multipart/form-data">
     <div style="width:380px;margin:42px auto;">
         <div class="form-group ">
-            <input type="text" name="name" placeholder="Post Name" class="form-control form-control-lg my-4"
+            <input type="text" name="campground[name]" placeholder="Post Name" class="form-control form-control-lg my-4"
                 autocomplete="off">
-            <input  name="image" placeholder="Image URL" class="form-control form-control-lg my-4"
-                autocomplete="off" >
-            <textarea name="descp" placeholder="Caption" class="form-control form-control-lg my-4"
+            <input type="file" name="image" placeholder="Image URL" class="form-control form-control-lg my-4"
+                autocomplete="off" accept="image/*">
+            <textarea name="campground[desc]" placeholder="Caption" class="form-control form-control-lg my-4"
                 autocomplete="off"></textarea>
-            <button type="submit" class="btn btn-primary btn-block mb-2">Add Camp</button>
+            <button type="submit" class="btn btn-primary btn-block mb-2">Post</button>
             <a href="/campgrounds" class="text-capitalize">go back</a>
         </div>
     </div>
