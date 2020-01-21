@@ -14,7 +14,6 @@
         <div class="col-md-9 mt-2">
             <img src="<%= campGround.image %>" class="img-fluid img-thumbnail">
             <div class="my-3">
-                <strong><span class="float-right"><span>Rs</span><%= campGround.price%>/night</span></strong>
                 <h4 class="caption"><a href="#"><%= campGround.name %></a></h4>
                 <p><%= campGround.desc %></p>
                 <p><em>Created By -<%= campGround.author.username%></em></p>
@@ -37,11 +36,11 @@
                         <form action="/campgrounds/<%=campGround._id%>/comment/<%=element._id%>?_method=DELETE"
                             method="POST" class="delete-form float-right ml-2">
                             <button class="btn btn-sm float-right"><i class='fas fa-trash'
-                                    style="color: red;font-size:1rem;"></i></button>
+                                    style="color: red;font-size:1rem;"></i>Delete</button>
                         </form>
                         <a class="btn btn-sm float-right"
-                            href="/campgrounds/<%=campGround._id%>/comment/<%=element._id%>/edit"><i
-                                class='fas fa-pen-fancy' style="font-size: 1rem;"> </i>
+                            href="/campgrounds/<%=campGround._id%>/comment/<%=element._id%>/edit" style="color: inherit;"><i
+                                class='fas fa-pen-fancy' style="font-size: 1rem;text-decoration: none;"> </i>Edit
 
                         </a>
                         <% } %>
