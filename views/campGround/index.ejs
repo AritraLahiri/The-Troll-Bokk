@@ -2,7 +2,7 @@
 <div class="container">
     <header>
         <div class="jumbotron">
-            <h1 class="display-4 text-capitalize">welcome to Commenter!</h1>
+            <h1 class="display-4 text-capitalize">welcome to Troll-Bokk!</h1>
             <p class="lead text-capitalize">view post all over the world and feel free to share your comments</p>
             <hr class="my-4">
             <p class="lead">
@@ -19,12 +19,12 @@
                 <span class="ml-2"><%= ele.author.username %></span>
             </div>
             <div class="data">
-                <p class="lead text-left pl-3"><%= ele.desc%></p>
+                <p class="lead text-left" id="caption"><%= ele.desc%></p>
                 <img src="<%= ele.image%>" class="img-fluid" id="img-index">
                 <% if(ele.comments.length > 1 || ele.liked.length > 1 ) {%>
                 <p class="lead float-right"><%=ele.comments.length%> Comments</p>
-                <%if (ele.liked.length > 3) { %>
-                <p class="lead"><i class="fa fa-thumbs-up"></i><%=ele.liked[0]%> and <%=ele.liked.length-1%> others </p>
+                <%if (ele.liked.length > 0) { %>
+                <p class="lead"><i class="fa fa-thumbs-up" style="margin-right: 12px;"></i><%=ele.liked[0]%> and <%=ele.liked.length-1%> others </p>
                 <%}%>
                 <hr id="divide">
                 <%} %>
@@ -34,6 +34,7 @@
                 <i class="fa fa-heart"></i><a href="/campgrounds/<%=ele._id%>/like" class="like"> Like </a>
                 <% }%>
                 <i class='fas fa-comment'></i><a href="/campgrounds/<%= ele._id %>" id="comment">Comment</a>
+                <i class="fa fa-cog"></i><a href="/campgrounds/<%= ele._id %>" id="comment">View</a>
                 <hr>
             </div>
         </div>

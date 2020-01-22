@@ -5,9 +5,15 @@
 }
 #img-index {
 	width: 100%;
-	height: auto;
-	padding: 15px;
+	height: 80vh;
 	border-radius: 32px;
+	margin:0 auto;
+	padding: 3% 0;
+}
+#caption{
+	
+	font-weight:100;
+	text-transform: capitalize;
 }
 #post-author {
 	font-size: 25px;
@@ -37,6 +43,10 @@ hr {
 	color: inherit;
 	text-decoration: none;
 	cursor: pointer;
+	
+}
+.float-right{
+	margin:0;
 }
 .like {
 	background-color: transparent;
@@ -73,7 +83,19 @@ hr {
 	transition: 0.5s;
 }
 i {
-	font-size: 320%;
+	font-size: 150%;
+}
+.fa-heart{
+	font-size: 250%;
+	
+}
+.fa-comment{
+	font-size: 250%;
+	margin-left: 6%;
+}
+.fa-cog{
+	font-size: 250%;
+	margin-left: 6%;
 }
 #nav {
 	font-size: 2rem;
@@ -81,6 +103,7 @@ i {
 
 .fas {
 	color: black;
+	
 }
 #back {
 	margin-left: 2px;
@@ -91,11 +114,17 @@ i {
 .card {
 	border: none;
 }
-
 * {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+#edit{
+	text-decoration: none;
+	color: #262626;
+	font-size: 17px;
+	font-weight: 500;
+}
+
 
 body {
 	padding: 0;
@@ -193,4 +222,6 @@ body {
 		width: 86px;
 		height: 86px;
 	}
+
 }
+
