@@ -4,14 +4,16 @@ const mongoose = require('mongoose');
 const campSchema = new mongoose.Schema({
 	name: String,
 	image: String,
-	image_id:String,
+	likes: { type: Number, default: 0 },
+	liked: [],
+	image_id: String,
 	desc: String,
 	author: {
-		id:	{
-		type: mongoose.Schema.Types.ObjectId,
-			ref: "User"
+		id: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User'
 		},
-		username:String
+		username: String
 	},
 	comments: [
 		{
