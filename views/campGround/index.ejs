@@ -23,15 +23,17 @@
                 <img src="<%= ele.image%>" class="img-fluid" id="img-index">
                 <% if(ele.comments.length > 1 || ele.liked.length > 1 ) {%>
                 <p class="lead float-right"><%=ele.comments.length%> Comments</p>
-                <p class="lead">Liked by <%=ele.liked.slice(0,2)%>...</p>
+                <%if (ele.liked.length > 3) { %>
+                <p class="lead"><i class="fa fa-thumbs-up"></i><%=ele.liked[0]%> and <%=ele.liked.length-1%> others </p>
+                <%}%>
                 <hr id="divide">
                 <%} %>
                 <% if (ele.likes > 0){ %>
-                <a href="/campgrounds/<%=ele._id%>/like"><%=ele.likes%> Likes</a>
+                <i class="fa fa-heart"></i><a href="/campgrounds/<%=ele._id%>/like" class="like"><%=ele.likes%>Likes</a>
                 <%} else{ %>
-                <a href="/campgrounds/<%=ele._id%>/like"> Like </a>
+                <i class="fa fa-heart"></i><a href="/campgrounds/<%=ele._id%>/like" class="like"> Like </a>
                 <% }%>
-                <a href="/campgrounds/<%= ele._id %>" id="comment"> <i class='fas fa-comment'></i>Comment</a>
+                <i class='fas fa-comment'></i><a href="/campgrounds/<%= ele._id %>" id="comment">Comment</a>
                 <hr>
             </div>
         </div>
