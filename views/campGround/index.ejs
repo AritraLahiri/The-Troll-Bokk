@@ -24,7 +24,8 @@
                 <% if(ele.comments.length > 1 || ele.liked.length > 1 ) {%>
                 <p class="lead float-right"><%=ele.comments.length%> Comments</p>
                 <%if (ele.liked.length > 0) { %>
-                <p class="lead"><i class="fa fa-thumbs-up" style="margin-right: 12px;"></i><%=ele.liked[0]%> and <%=ele.liked.length-1%> others </p>
+                <p class="lead"><i class="fa fa-thumbs-up" style="margin-right: 12px;"></i><%=ele.liked[0]%> and
+                    <%=ele.liked.length-1%> others </p>
                 <%}%>
                 <hr id="divide">
                 <%} %>
