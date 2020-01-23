@@ -1,5 +1,5 @@
 //REQUIRING DEPENDENCIES
-require('dotenv').config()
+// require('dotenv').config()
 const express = require('express'),
 app 			 = 	express(),
 bodyParser 		 = 	require('body-parser'),
@@ -20,7 +20,7 @@ authRoute		 = 	require('./routes/Auth');
 
 
 // mongoose.connect('mongodb+srv://aritra:GSf6li1FuXTev75y@cluster0-3ts3r.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false });
-mongoose.connect(process.env.DATABASE_URL || process.env.HEROKU_DB_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 // APP CONFIG
 app.set('view engine', '.ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
