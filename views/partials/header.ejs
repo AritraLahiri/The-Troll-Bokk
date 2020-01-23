@@ -8,23 +8,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css">
   
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-default">
-        <a class="navbar-brand" href="/">Troll-Bokk</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <nav class="navbar navbar-expand-lg navbar-default fixed-top" id="mainnavbar">
+        <a class="navbar-brand" href="#">TROLL-BOKK</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarlinks"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"> <i class="fa fa-align-justify" id="nav"></i></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarlinks">
             <ul class="navbar-nav ml-auto">
 
+                <li class="nav-item-active">
+                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                </li>
                 <% if(!currentUser){ %>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -41,7 +45,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" id="alert">
         <%if (error.length){ %>
         <div class="alert alert-danger" role="alert">
             <%=error %>

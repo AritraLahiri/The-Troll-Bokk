@@ -1,12 +1,16 @@
 <%- include("../partials/header") %>
+<header>
+<div class="jumbotron">
 <h1 class="my-5 text-center">Add Comments to <%= campGround.name %> </h1>
 <form action="/campgrounds/<%=campGround._id%>/comment" method="post">
     <div style="width:380px;margin:42px auto;">
-        <div class="form-group ">
+        <div class="form-group">
             <input type="text" name="comment[text]" placeholder="Opinion" class="form-control form-control-lg my-4" autocomplete="off">
-            <button type="submit" class="btn btn-primary btn-block mb-2">Comment</button>
-            <a href="/campgrounds" class="text-capitalize">go back</a>
+            <button type="submit" class="btn btn-outline-success btn-block mb-2">Comment</button>
+            <a href="/campgrounds" class="text-capitalize" id="back">go back</a>
         </div>
     </div>
 </form>
+</div>
+</header>
 <%- include("../partials/footer") %>

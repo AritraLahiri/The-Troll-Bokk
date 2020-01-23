@@ -1,5 +1,6 @@
 <%- include("partials/header") %>
 <form action="/register" method="POST"> 
+    <header>
     <div class="jumbotron">
         <h1 class="display-4 text-center text-capitalize">register yourself!</h1>
         <hr class="my-4">
@@ -8,9 +9,10 @@
                 <input type="text" name="username" class="form-control form-control-lg my-4" placeholder="Name">
                 <input type="password" name="password" class="form-control form-control-lg my-4" placeholder="Password">
                 <button type="submit" class="btn btn-outline-warning btn-block mb-2">Register</button>
-                <a href="/campgrounds" class="text-capitalize">go back</a>
+                <a href="/campgrounds" class="text-capitalize" id="back">go back</a>
             </div>
         </div>
     </div>
+    </header>   
 </form>
 <%- include("partials/footer") %>
