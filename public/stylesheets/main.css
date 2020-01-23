@@ -270,6 +270,19 @@ body {
 	}
 }
 @media (max-width: 768.5px) {
+	#alert {
+		width: auto;
+		margin-top: 22%;
+		text-align: center;
+	}
+	.form-control,
+	.btn-block {
+		width: 80%;
+		margin: 0 2%;
+	}
+	#header {
+		font-size: 1.1rem;
+	}
 	#heading {
 		font-size: 40px;
 	}
@@ -300,6 +313,6 @@ body {
 		font-size: 10px;
 	}
 	#back {
-		margin-top: 15%;
+		margin-top: 2%;
 	}
 }
