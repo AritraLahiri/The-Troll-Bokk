@@ -1,84 +1,186 @@
-body {
-	background-color: #000;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 	font-family: 'Nunito', sans-serif;
 }
-
-#landing-header {
-	z-index: 1;
-	position: relative;
-	text-align: center;
-	padding-top: 40vh;
+header {
+	width: 100%;
+	height: 100vh;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url(../Images/img/first.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
-#landing-header h1 {
+nav {
+	width: 100%;
+	height: 15vh;
+	background-color: rgba(128, 128, 128, 0.2);
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: capitalize;
+}
+nav .logo {
+	width: 40%;
+	text-align: center;
+}
+nav .menu {
+	width: 25%;
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 23px;
+}
+nav .menu a {
+	text-decoration: none;
+	color: #fff;
+	font-weight: 400;
+}
+main {
+	width: 100%;
+	height: 85vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 	color: #fff;
 }
-.slideshow {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	z-index: 0;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-.slideshow li {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-size: cover;
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
-	opacity: 0;
-	z-index: 0;
-	animation: imageAnimation 50s linear infinite;
-}
-.slideshow li:nth-child(1) {
-	background-image: url('../Images/img/first.jpg');
-}
-.slideshow li:nth-child(2) {
-	background-image: url('../Images/img/second.jpg');
-	animation-delay: 10s;
-}
-.slideshow li:nth-child(3) {
-	background-image: url('../Images/img/third.jpg');
-	animation-delay: 20s;
-}
-.slideshow li:nth-child(4) {
-	background-image: url('../Images/img/fourth.jpg');
-	animation-delay: 30s;
-}
-.slideshow li:nth-child(5) {
-	background-image: url(https://images.unsplash.com/photo-1489846986031-7cea03ab8fd0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80);
-	animation-delay: 40s;
-}
-@keyframes imageAnimation {
-	0% {
-		opacity: 0;
-		animation-timing-function: ease-in;
-	}
-	10% {
-		opacity: 1;
-		animation-timing-function: ease-out;
-	}
-	20% {
-		opacity: 1;
-	}
-	30% {
-		opacity: 0;
-	}
-}
-/* Older browser support - .no-cssanimations class added by modernizr */
-.no-cssanimations .slideshow li {
-	opacity: 1;
+section h1 {
+	margin: 30px 0 20px 0;
+	font-weight: 800;
+	font-size: 85px;
+	letter-spacing: 3px;
+	text-shadow: 1px 1px 2px #fff;
 }
 
-@media (max-width: 768.5px) {
-	#landing-header h1 {
-		font-size: 2.9rem;
-		margin: 2% auto;
+section h3 {
+	font-weight: 200;
+	font-size: 39px;
+	text-shadow: 1px 1px 2px #232323;
+}
+section p {
+	font-size: 25px;
+	word-spacing: 2px;
+	text-shadow: 1px 1px 1px #232323;
+	margin-bottom: 60px;
+	text-transform: capitalize;
+}
+section a {
+	font-size: 33px;
+	padding: 12px 30px;
+	border-radius: 26px;
+	text-decoration: none;
+	outline: none;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: capitalize;
+	color: #fff;
+	transition: all 0.5s ease;
+}
+nav .menu a:first-child {
+	color: magenta;
+}
+
+section .btn-1 {
+	background-color: #fff;
+	color: #232323;
+}
+section .btn-1:hover {
+	background-color: magenta;
+	color: #fff;
+}
+section .btn-3:hover {
+	color: magenta;
+	text-decoration: underline #fff;
+}
+
+section .btn-2 {
+	margin: 0 0 0 32px;
+	background-color: magenta;
+	color: #fff;
+}
+.change-content:after {
+	content: "";
+	animation: changed-text 10s infinite linear;
+	color: magenta;
+	text-shadow: 1px 1px 2px magenta;
+}
+@keyframes changed-text {
+	0% {
+		content: "GREAT";
+	}
+	20% {
+		content: "FUNNY";
+	}
+	35% {
+		content: "COOL";
+	}
+	60% {
+		content: "VIRAL";
+	}
+	80% {
+		content: "LATEST";
+	}
+	100% {
+		content: "Positive";
+	}
+}
+#name {
+	color: #fff;
+	animation: company-name 5s infinite linear;
+}
+@keyframes company-name {
+	0% {
+		color: magenta;
+	}
+	20% {
+		color: #fff;
+	}
+	35% {
+		color: magenta;
+	}
+	60% {
+		color: #fff;
+	}
+	80% {
+		color: magenta;
+	}
+	100% {
+		color: #fff;
+	}
+}
+
+@media (max-width: 968.5px) {
+	nav .menu {
+		display: none;
+	}
+	nav .logo {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 30px;
+	}
+	section h1 {
+		font-size: 48px;
+		font-weight: 900;
+	}
+
+	section p {
+		font-size: 15px;
+	}
+	section h3 {
+		font-size: 22px;
+	}
+	section a {
+		font-size: 19px;
+	}
+	main {
+		align-items: center;
+	}
+	.btn-3 {
+		display: block;
+		margin: 11% auto;
+		font-size: 22px;
 	}
 }

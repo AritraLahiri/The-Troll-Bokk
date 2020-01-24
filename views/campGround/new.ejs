@@ -1,14 +1,14 @@
 <%- include("../partials/header") %>
 <h1 class="my-5 text-center">Add Your Posts Here </h1>
 <form action="/campgrounds" method="post" enctype="multipart/form-data">
-    <div style="width:380px;margin:42px auto;">
+    <div style="width:380px;margin:0 auto;" id="post-form">
         <div class="form-group ">
             <input type="text" name="campground[name]" placeholder="Post Name" class="form-control form-control-lg my-4"
                 autocomplete="off">
             <input type="file" name="image" placeholder="Image URL" class="form-control form-control-lg my-4"
-                autocomplete="off" accept="image/*">
+                autocomplete="off" accept="image/*" required>
             <textarea name="campground[desc]" placeholder="Caption" class="form-control form-control-lg my-4"
-                autocomplete="off"></textarea>
+                autocomplete="off" required></textarea>
             <button type="submit" class="btn btn-primary btn-block mb-2">Post</button>
             <a href="/campgrounds" class="text-capitalize" id="back">go back</a>
         </div>

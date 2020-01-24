@@ -15,6 +15,7 @@ body {
 #mainnavbar {
 	font-size: 1.5rem;
 	font-weight: 100;
+	background-color: rgba(0, 0, 0, 0.2);
 }
 #mainnavbar .navbar-brand {
 	font-size: 1.8rem;
@@ -68,8 +69,7 @@ header .jumbotron {
 }
 #img-index {
 	width: 100%;
-	height: auto;
-	border-radius: 32px;
+	height: 100vh;
 	margin: 0 auto;
 	padding: 3% 0;
 }
@@ -314,5 +314,8 @@ body {
 	}
 	#back {
 		margin-top: 2%;
+	}
+	#post-form {
+		padding-left: 18px;
 	}
 }
