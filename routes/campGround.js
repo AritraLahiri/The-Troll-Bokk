@@ -36,6 +36,7 @@ router.get('/campgrounds', (req, res) => {
 		} else {
 			//Array Shuffling Code
 			const array = (arr) => {
+				if (!arr.length) return arr
 				let res;
 				//SWAPING BETWEEN TWO NUMBERS
 				const swap = (arr, i, j) => {
@@ -55,7 +56,7 @@ router.get('/campgrounds', (req, res) => {
 			};
 
 			allCampGround = array(allCampGround);
-			res.render('campGround/index', { camp: allCampGround });
+			res.render('campGround/index', { camp: allCampGround});
 		}
 	});
 });

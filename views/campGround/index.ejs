@@ -2,7 +2,8 @@
 <div class="container">
     <header>
         <div class="jumbotron">
-            <h1 class="display-4 text-capitalize" id="heading">welcome to Troll-Bokk!</h1>
+            <h1 class="display-4 text-capitalize" id="heading"><i class="fas fa-yin-yang"></i> welcome to Troll-Bokk!
+            </h1>
             <p class="lead text-capitalize">view post all over the world and feel free to share your comments</p>
             <hr class="my-4">
             <p class="lead">
@@ -17,6 +18,7 @@
             <div class="float-left ml-3">
                 <img src="<%=ele.image%> " class="avatar">
                 <span class="ml-2" id="header"><%= ele.author.username %></span>
+                <p></p>
             </div>
             <div class="data">
                 <p class="lead text-left" id="caption"><%= ele.desc%></p>
@@ -29,12 +31,12 @@
                 <%}%>
                 <hr id="divide">
                 <%} %>
-                <% if (ele.likes > 0){ %>
+                <% if (ele.likes > 0 && ele.liked.indexOf(ele.author.username) != -1){ %>
                 <i class="fa fa-heart"></i><a href="/campgrounds/<%=ele._id%>/like" class="like"><%=ele.likes%>Likes</a>
                 <%} else{ %>
-                <i class="fa fa-heart"></i><a href="/campgrounds/<%=ele._id%>/like" class="like"> Like </a>
+                <i class="far fa-heart"></i><a href="/campgrounds/<%=ele._id%>/like" class="like"> Like </a>
                 <% }%>
-                <i class='fas fa-comment'></i><a href="/campgrounds/<%= ele._id %>" id="comment">Comment</a>
+                <i class='far fa-comment'></i><a href="/campgrounds/<%= ele._id %>" id="comment">Comment</a>
 
                 <hr>
             </div>

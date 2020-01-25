@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/main.css">
-  
+
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                 </li>
                 <% } else {%>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Watsup <%=currentUser.username.toUpperCase() %></a>
+                    <a class="nav-link" href="#"><%=currentUser.username%></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
@@ -55,4 +55,5 @@
             <%=success %>
         </div>
         <% }%>
+
     </div>

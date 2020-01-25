@@ -7,16 +7,18 @@
         <div class="col-md-9 mt-2">
             <img src="<%= campGround.image %>" class="img-fluid img-thumbnail">
             <div class="my-3">
-                <% if(currentUser && campGround.author.id.equals(currentUser.id )) {%>
-                <a class="btn  text-capitalize btn-sm" href="/campgrounds/<%=campGround._id%>/edit" id="edit"><i
-                        class='fas fa-pen-fancy'></i></a>
+                <% if(currentUser && campGround.author.id.equals(currentUser.id ) || currentUser && currentUser.isAdmin){%>
+                <a class="btn  text-capitalize btn-sm" href="/campgrounds/<%=campGround._id%>/edit" id="edit">
+                    <i class="far fa-edit"></i></a>
                 <form action="/campgrounds/<%=campGround._id%>?_method=DELETE" method="POST" class="delete-form">
-                    <button class="button-delete"><i class='fas fa-trash' style="color: red;margin-right: 4px;"></i></button>
+                    <button class="button-delete"><i class='fas fa-trash'
+                            style="color: red;margin-right: 4px;"></i></button>
                 </form>
                 <% } %>
                 <h4 class="caption"><a href="#"><%= campGround.name %></a></h4>
                 <p><%= campGround.desc %></p>
-                <p><em>Created By -<%= campGround.author.username%></em></p>
+                <p><em>Created By - <a href="user/<%=campGround.author.id%>"><%= campGround.author.username%></a></em>
+                </p>
 
                 <p class="pb-5"><a href="/campgrounds/<%=campGround._id%>/comment/new"
                         class="btn btn-success float-right">Comment</a></p>
@@ -25,10 +27,10 @@
                     <div class="col-md-12 mt-3">
                         <div>
                             <strong><%=element.author.username.toUpperCase() %></strong>
+                            <span class="float-right"> 3 days ago</span>
                         </div>
-                        <span class="float-right"> 3 days ago</span>
                         <%= element.text%>
-                        <% if(currentUser && element.author.id.equals(currentUser.id)){%>
+                        <% if(currentUser && element.author.id.equals(currentUser.id) || currentUser && currentUser.isAdmin){%>
                         <form action="/campgrounds/<%=campGround._id%>/comment/<%=element._id%>?_method=DELETE"
                             method="POST" class="delete-form float-right ml-2">
                             <button class="button-delete"><i class='fas fa-trash'
@@ -36,8 +38,8 @@
                         </form>
                         <a class="btn btn-sm float-right"
                             href="/campgrounds/<%=campGround._id%>/comment/<%=element._id%>/edit"
-                            style="color: inherit;"><i class='fas fa-pen-fancy'
-                                style="font-size: 1rem;text-decoration: none;"></i>
+                            style="color: inherit;">
+                            <i class='far fa-edit' style="font-size: 1rem;text-decoration: none;"></i>
                         </a>
                         <% } %>
                     </div>
