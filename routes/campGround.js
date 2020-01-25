@@ -1,4 +1,4 @@
-const express 	= require('express'),
+const express  	= require('express'),
 	router 		= express.Router(),
 	campGround 	= require('../models/Camps'),
 	middleware 	= require('../middleware'),
@@ -7,20 +7,20 @@ const express 	= require('express'),
 				filename: function(req, file, callback) {
 					callback(null, Date.now() + file.originalname);
 				}
-			}),
+				}),
 	imageFilter = function(req, file, cb) {
-		// accept image files only
-		if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
-			return cb(new Error('Only image files are allowed!'), false);
-		}
-		cb(null, true);
-	},
+				// accept image files only
+				if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+					return cb(new Error('Only image files are allowed!'), false);
+				}
+				cb(null, true);
+				},
 	upload 		= multer({ storage: storage, fileFilter: imageFilter }),
 	cloudinary 	= require('cloudinary');
-				cloudinary.config({
-					cloud_name: 'dzdmmkzcb',
-					api_key: process.env.CLOUDINARY_API_KEY,
-					api_secret: process.env.CLOUDINARY_API_SECRET
+cloudinary.config({
+				cloud_name: 'dzdmmkzcb',
+				api_key: process.env.CLOUDINARY_API_KEY,
+				api_secret: process.env.CLOUDINARY_API_SECRET
 				});
 
 // LANDING PAGE
@@ -34,6 +34,27 @@ router.get('/campgrounds', (req, res) => {
 		if (err) {
 			console.log(error);
 		} else {
+			//Array Shuffling Code
+			const array = (arr) => {
+				let res;
+				//SWAPING BETWEEN TWO NUMBERS
+				const swap = (arr, i, j) => {
+					const temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+					return arr;
+				};
+				const n = arr.length;
+				//CREATING A COPY OF ORIGINAL ARRAY
+				const shuffled = arr.slice();
+				//SWAPPING BETWEEN RANDOM NUMBERS
+				for (let i = 0; i < n; i++) {
+					res = swap(shuffled, i, Math.floor(Math.random() * n));
+				}
+				return res;
+			};
+
+			allCampGround = array(allCampGround);
 			res.render('campGround/index', { camp: allCampGround });
 		}
 	});

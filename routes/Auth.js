@@ -1,7 +1,7 @@
 const express = require('express'),
 	router    = express.Router(),
-	passport  = require('passport'),	
-	User   	  =	require('../models/Users/user');
+	passport  = require('passport'),
+	User      = require('../models/Users/user');
 
 //===========
 //AUTH ROUTES
@@ -14,35 +14,29 @@ router.get('/register', (req, res) => res.render('register'));
 router.post('/register', (req, res) => {
 	User.register(new User({ username: req.body.username }), req.body.password, (error, user) => {
 		if (error) {
-			console.log(error);
-			req.flash("error",error.message)
-			res.redirect('/register');
-		} else {
-			passport.authenticate('local', { failureRedirect: '/register' });
-			req.flash("success","Signed in as " + req.body.username);
-			res.redirect('/campgrounds');
+			req.flash('error', error.message);
+			return res.redirect('/register');
 		}
+		passport.authenticate('local')(req, res, function() {
+			res.redirect('/campgrounds');
+			req.flash('success', 'Signed in as ' + req.body.username);
+		});
 	});
 });
 
 //LOGIN ROUTE NEW
-router.get("/login", (req, res) => res.render("login"));
+router.get('/login', (req, res) => res.render('login'));
 //LOGIN CREATE
-router.post("/login", passport.authenticate("local", { failureRedirect: "/login", failureFlash: true}), (req, res) => {
-	req.flash("success", "Nice to see you again " + req.body.username);
-	res.redirect("/campgrounds");
+router.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }), (req, res) => {
+	req.flash('success', 'Nice to see you again ' + req.body.username);
+	res.redirect('/campgrounds');
 });
 //LOGOUT
-router.get("/logout", (req, res) => {
+router.get('/logout', (req, res) => {
 	req.logOut();
-	req.flash("success", "Successfully Logged you out!");
-	res.redirect("/campgrounds");
-})
+	req.flash('success', 'Successfully Logged you out!');
+	res.redirect('/campgrounds');
+});
 
-//MIDLLEWARE ISLOGGEDIN
-function isLoggedIn(req, res, next) {
-	if (req.isAuthenticated()) return next()
-	else res.redirect("/login");
-}
 
-module.exports = router
+module.exports = router;

@@ -1,7 +1,7 @@
 let middlewareObj = {}
-const Comment   = require('../models/comments'),
-	campGround  = require('../models/Camps'),
-	flash 	    = require('connect-flash');
+const Comment     = require('../models/comments'),
+	campGround    = require('../models/Camps'),
+	flash 	      = require('connect-flash');
 
 //MIDDLEWARE WHO CAN EDIT OR DELETE COMMENT(AUTHORIZATION)
 middlewareObj.isCommentOwner = function isCommentOwner(req, res, next) {

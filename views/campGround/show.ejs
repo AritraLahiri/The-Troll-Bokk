@@ -11,7 +11,7 @@
                 <a class="btn  text-capitalize btn-sm" href="/campgrounds/<%=campGround._id%>/edit" id="edit"><i
                         class='fas fa-pen-fancy'></i></a>
                 <form action="/campgrounds/<%=campGround._id%>?_method=DELETE" method="POST" class="delete-form">
-                    <a class="btn"><i class='fas fa-trash' style="color: red;margin-right: 4px;"></i>Delete</a>
+                    <button class="button-delete"><i class='fas fa-trash' style="color: red;margin-right: 4px;"></i></button>
                 </form>
                 <% } %>
                 <h4 class="caption"><a href="#"><%= campGround.name %></a></h4>
@@ -31,8 +31,8 @@
                         <% if(currentUser && element.author.id.equals(currentUser.id)){%>
                         <form action="/campgrounds/<%=campGround._id%>/comment/<%=element._id%>?_method=DELETE"
                             method="POST" class="delete-form float-right ml-2">
-                            <a class="btn btn-sm float-right"><i class='fas fa-trash'
-                                    style="color: red;font-size:1rem;"></i>Delete</a>
+                            <button class="button-delete"><i class='fas fa-trash'
+                                    style="color: red;font-size:1rem;"></i></button>
                         </form>
                         <a class="btn btn-sm float-right"
                             href="/campgrounds/<%=campGround._id%>/comment/<%=element._id%>/edit"

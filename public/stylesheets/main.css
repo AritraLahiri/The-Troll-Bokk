@@ -176,6 +176,12 @@ i {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+.button-delete{
+	background-color: transparent;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
 #edit {
 	text-decoration: none;
 	color: #262626;
