@@ -1,23 +1,30 @@
 <%- include("partials/header") %>
-<form action="/register" method="POST"> 
+<form action="/register" method="POST">
     <header>
-    <div class="jumbotron">
-        <h1 class="display-4 text-center text-capitalize">register yourself!</h1>
-        <hr class="my-4">
-          <div style="width:380px;margin:42px auto;">
-            <div class="form-group ">
-                <input type="text" name="username" class="form-control form-control-lg my-4" placeholder="name" required>
-                <input type="text" name="firstname" class="form-control form-control-lg my-4" placeholder="firstname" required>
-                <input type="text" name="lastname" class="form-control form-control-lg my-4" placeholder="lastname" required>
-                <input type="text" name="email" class="form-control form-control-lg my-4" placeholder="email" required>
-                <input type="text" name="avatar" class="form-control form-control-lg my-4" placeholder="avatar-url">
-                <input type="password" name="password" class="form-control form-control-lg my-4" placeholder="password" required>
-                <input type="text" name="adminCode" class="form-control form-control-lg my-4" placeholder="admin-Code">
-                <button type="submit" class="btn btn-outline-warning btn-block mb-2">Register</button>
-                <a href="/campgrounds" class="text-capitalize" id="back">go back</a>
+        <div class="jumbotron">
+            <h1 class="display-4  text-capitalize">register yourself!</h1>
+            <hr class="my-4">
+            <div>
+                <div class="form-group ">
+                    <input type="text" name="username" class="form-control form-control-lg my-4" placeholder="name"
+                        required>
+                    <input type="text" name="firstname" class="form-control form-control-lg my-4"
+                        placeholder="firstname" required>
+                    <input type="text" name="lastname" class="form-control form-control-lg my-4" placeholder="lastname"
+                        required>
+                    <input type="text" name="email" class="form-control form-control-lg my-4" placeholder="email"
+                        required>
+                    <input type="text" name="avatar" class="form-control form-control-lg my-4" placeholder="avatar-url"
+                        required>
+                    <input type="password" name="password" class="form-control form-control-lg my-4"
+                        placeholder="password" required>
+                    <input type="text" name="adminCode" class="form-control form-control-lg my-4"
+                        placeholder="admin-Code">
+                    <button type="submit" class="btn btn-warning btn-block mb-2">Register</button>
+                    <a href="/campgrounds" class="text-capitalize" id="back">go back</a>
+                </div>
             </div>
         </div>
-    </div>
-    </header>   
+    </header>
 </form>
 <%- include("partials/footer") %>

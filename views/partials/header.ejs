@@ -35,9 +35,11 @@
                     <a class="nav-link" href="/register">Sign Up</a>
                 </li>
                 <% } else {%>
-                <li class="nav-item">
-                    <a class="nav-link" href="/campgrounds/user/<%=currentUser.id%>"><%=currentUser.username%></a>
+                <li class="nav-item ">
+                    <img src="<%=currentUser.avatar%>"  class="nav-link avatar pic">
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link name" href="/campgrounds/user/<%=currentUser.id%>"><%=currentUser.username%></a>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
@@ -55,5 +57,6 @@
             <%=success %>
         </div>
         <% }%>
+       
 
     </div>

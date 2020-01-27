@@ -1,27 +1,27 @@
-const express  	= require('express'),
-	router 		= express.Router(),
-	campGround 	= require('../models/Camps'),
-	middleware 	= require('../middleware'),
-	multer 		= require('multer'),
-	storage 	= multer.diskStorage({
-				filename: function(req, file, callback) {
-					callback(null, Date.now() + file.originalname);
-				}
-				}),
+const express = require('express'),
+	router = express.Router(),
+	campGround = require('../models/Camps'),
+	middleware = require('../middleware'),
+	multer = require('multer'),
+	storage = multer.diskStorage({
+		filename: function(req, file, callback) {
+			callback(null, Date.now() + file.originalname);
+		}
+	}),
 	imageFilter = function(req, file, cb) {
-				// accept image files only
-				if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
-					return cb(new Error('Only image files are allowed!'), false);
-				}
-				cb(null, true);
-				},
-	upload 		= multer({ storage: storage, fileFilter: imageFilter }),
-	cloudinary 	= require('cloudinary');
+		// accept image files only
+		if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+			return cb(new Error('Only image files are allowed!'), false);
+		}
+		cb(null, true);
+	},
+	upload = multer({ storage: storage, fileFilter: imageFilter }),
+	cloudinary = require('cloudinary');
 cloudinary.config({
-				cloud_name: 'dzdmmkzcb',
-				api_key: process.env.CLOUDINARY_API_KEY,
-				api_secret: process.env.CLOUDINARY_API_SECRET
-				});
+	cloud_name: 'dzdmmkzcb',
+	api_key: process.env.CLOUDINARY_API_KEY,
+	api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 // LANDING PAGE
 router.get('/', (req, res) => {
@@ -35,28 +35,28 @@ router.get('/campgrounds', (req, res) => {
 			console.log(error);
 		} else {
 			//Array Shuffling Code
-			const array = (arr) => {
-				if (!arr.length) return arr
-				let res;
-				//SWAPING BETWEEN TWO NUMBERS
-				const swap = (arr, i, j) => {
-					const temp = arr[i];
-					arr[i] = arr[j];
-					arr[j] = temp;
-					return arr;
-				};
-				const n = arr.length;
-				//CREATING A COPY OF ORIGINAL ARRAY
-				const shuffled = arr.slice();
-				//SWAPPING BETWEEN RANDOM NUMBERS
-				for (let i = 0; i < n; i++) {
-					res = swap(shuffled, i, Math.floor(Math.random() * n));
-				}
-				return res;
-			};
+			// const array = (arr) => {
+			// 	if (!arr.length) return arr
+			// 	let res;
+			// 	//SWAPING BETWEEN TWO NUMBERS
+			// 	const swap = (arr, i, j) => {
+			// 		const temp = arr[i];
+			// 		arr[i] = arr[j];
+			// 		arr[j] = temp;
+			// 		return arr;
+			// 	};
+			// 	const n = arr.length;
+			// 	//CREATING A COPY OF ORIGINAL ARRAY
+			// 	const shuffled = arr.slice();
+			// 	//SWAPPING BETWEEN RANDOM NUMBERS
+			// 	for (let i = 0; i < n; i++) {
+			// 		res = swap(shuffled, i, Math.floor(Math.random() * n));
+			// 	}
+			// 	return res;
+			// };
 
-			allCampGround = array(allCampGround);
-			res.render('campGround/index', { camp: allCampGround});
+			// allCampGround = array(allCampGround);
+			res.render('campGround/index', { camp: allCampGround });
 		}
 	});
 });
@@ -105,10 +105,11 @@ router.get('/campgrounds/:id/like', middleware.isLoggedIn, (req, res) => {
 				foundCamp.save();
 				res.redirect('back');
 			} else {
-				let index = foundCamp.liked.indexOf(req.username);
+				let index = foundCamp.liked.indexOf(req.user.username);
 				foundCamp.liked.splice(index, 1);
 				foundCamp.likes--;
 				foundCamp.save();
+				console.log(foundCamp.liked);
 				res.redirect('back');
 			}
 		}

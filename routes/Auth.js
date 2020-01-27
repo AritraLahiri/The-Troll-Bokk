@@ -1,7 +1,7 @@
 const express = require('express'),
 	router    = express.Router(),
 	passport  = require('passport'),
-	campground= require('../models/Camps');
+	campground= require('../models/Camps'),
 	User      = require('../models/Users/user');
 
 //===========

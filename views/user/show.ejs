@@ -1,18 +1,16 @@
 <%- include("../partials/header") %>
+<div class="container-fluid my-5">
+    <a href="/campgrounds"><i class='fas fa-arrow-left' id="back"></i></a>
+</div>
 <div class="container">
-    <div class="card" style="width:400px;margin: 0 auto;">
-            <img class="card-img-top " src="<%= user.avatar%>" alt="Profile image">
-            <div class="card-body">
-                <h4 class="card-title"><%=user.firstname + " " + user.lastname%></h4>
-                <a href="#" class="card-text"><%=user.email%>.</a>
-            </div>
+    <div class="card mx-auto ">
+        <img class="card-img-top " src="<%= user.avatar%>" alt="Profile image">
+        <div class="card-body">
+            <h4 class="card-title"><%=user.firstname + " " + user.lastname%></h4>
+            <a href="#" class="card-text"><%=user.email%>.</a>
         </div>
-        <!-- <h1><%=user.username%>'s Posts</h1>
-        <%camp.forEach(ele=>{ %>
-        <a href="/campgrounds/<%=ele.id%>">
-            <h3><%=ele.desc%></h3>
-        </a>
-        <%})%> -->
     </div>
+
+</div>
 
 <%- include("../partials/footer") %>

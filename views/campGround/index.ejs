@@ -3,7 +3,7 @@
     <header>
         <div class="jumbotron">
             <h1 class="display-4 text-capitalize" id="heading"><i class="fas fa-yin-yang"></i> welcome to Troll-Bokk!
-            </h1>
+            </h1> 
             <p class="lead text-capitalize">view post all over the world and feel free to share your comments</p>
             <hr class="my-4">
             <p class="lead">
@@ -31,12 +31,12 @@
                 <%}%>
                 <hr id="divide">
                 <%} %>
-                <% if (ele.likes > 0 && ele.liked.indexOf(ele.author.username) != -1){ %>
-                <i class="fa fa-heart"></i><a href="/campgrounds/<%=ele._id%>/like" class="like"><%=ele.likes%>Likes</a>
+                <% if (currentUser && ele.likes > 0 && ele.liked.includes(currentUser.username)){ %>
+                <a href="/campgrounds/<%=ele._id%>/like" class="like"><i class="fa fa-heart" style="color:red;"></i></a><span><%=ele.likes%></span>
                 <%} else{ %>
-                <i class="far fa-heart"></i><a href="/campgrounds/<%=ele._id%>/like" class="like"> Like </a>
+                <a href="/campgrounds/<%=ele._id%>/like" class="like"><i class="far fa-heart"></i></a><span><%=ele.likes%></span>
                 <% }%>
-                <i class='far fa-comment'></i><a href="/campgrounds/<%= ele._id %>" id="comment">Comment</a>
+                <a href="/campgrounds/<%= ele._id %>" id="comment"><i class='far fa-comment'></i></a><span>Comment</span>
 
                 <hr>
             </div>
